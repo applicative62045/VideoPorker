@@ -100,6 +100,15 @@ namespace VideoPorkerTest
                 new CardModel() {Mark = CardModel.CardMark.Spade, Number = CardModel.CardNumber.Two},
             };
 
+            var straightFlushRandomOrder = new List<CardModel>()
+            {
+                new CardModel() {Mark = CardModel.CardMark.Club, Number = CardModel.CardNumber.Seven},
+                new CardModel() {Mark = CardModel.CardMark.Club, Number = CardModel.CardNumber.Six},
+                new CardModel() {Mark = CardModel.CardMark.Club, Number = CardModel.CardNumber.Eight},
+                new CardModel() {Mark = CardModel.CardMark.Club, Number = CardModel.CardNumber.Nine},
+                new CardModel() {Mark = CardModel.CardMark.Club, Number = CardModel.CardNumber.Ten},
+            };
+
             Assert.IsTrue(Dealer.GetRole(straightFlush) == DealerModel.Role.StraightFlush);
             Assert.IsTrue(Dealer.GetRole(fourofAKind) == DealerModel.Role.FourofAKind);
             Assert.IsTrue(Dealer.GetRole(fullHouse) == DealerModel.Role.FullHouse);
@@ -109,6 +118,8 @@ namespace VideoPorkerTest
             Assert.IsTrue(Dealer.GetRole(twoPair) == DealerModel.Role.TwoPair);
             Assert.IsTrue(Dealer.GetRole(OnePair) == DealerModel.Role.OnePair);
             Assert.IsTrue(Dealer.GetRole(highCards) == DealerModel.Role.HighCards);
+
+            Assert.IsTrue(Dealer.GetRole(straightFlushRandomOrder) == DealerModel.Role.StraightFlush);
         }
     }
 }

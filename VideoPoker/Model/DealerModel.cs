@@ -16,7 +16,8 @@ namespace VideoPoker.Model
     public class DealerModel : SerializableModel
     {
         public enum Role { HighCards, OnePair, TwoPair, ThreeofAKind, Straight, Flush, FullHouse, FourofAKind, StraightFlush };
-
+        public enum Strength { Strong, Same, Weak};
+        
         [IgnoreDataMember]
         private DeckModel _Deck;
         [IgnoreDataMember]
@@ -82,7 +83,7 @@ namespace VideoPoker.Model
 
             switch(groupsCount) {
                 case 5:// StraightFlush or Straight or Flush or HighCards
-                    if(numbers.Sum(v => (int)v) == Enumerable.Range((int)numbers.First(), 5).Sum()) {
+                    if(numbers.Sum(v => (int)v) == Enumerable.Range((int)numbers.Min(), 5).Sum()) {
                         // 連続している
                         if(isSameMark) 
                             result = Role.StraightFlush;
@@ -110,10 +111,32 @@ namespace VideoPoker.Model
                     else
                         result = Role.FullHouse;
                     break;
-            
             }
             return result;
         }
 
+
+        public Strength Judge(IEnumerable<CardModel> lhs, IEnumerable<CardModel> rhs)
+        {
+            throw new NotImplementedException();
+            Strength result;
+            var rolel = GetRole(lhs);
+            var roler = GetRole(rhs);
+
+            if (rolel > roler) {
+                result = Strength.Strong;
+            } else if (rolel == roler) {
+                CardModel.CardNumber numberl;
+                CardModel.CardNumber numberr;
+
+                switch (rolel) {
+                    case Role.StraightFlush:
+                    case Role.Straight:
+                        break;
+                }
+            } else {
+                result = Strength.Weak;
+            }
+        }
     }
 }
