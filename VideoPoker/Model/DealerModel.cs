@@ -119,7 +119,6 @@ namespace VideoPoker.Model
 
         public Strength Judge(IEnumerable<CardModel> lhs, IEnumerable<CardModel> rhs)
         {
-            throw new NotImplementedException();
             Strength result;
             var rolel = GetRole(lhs);
             var roler = GetRole(rhs);
@@ -127,17 +126,45 @@ namespace VideoPoker.Model
             if (rolel > roler) {
                 result = Strength.Strong;
             } else if (rolel == roler) {
-                CardModel.CardNumber numberl;
-                CardModel.CardNumber numberr;
-
                 switch (rolel) {
                     case Role.StraightFlush:
                     case Role.Straight:
+                        // 最大の値で比較する、ただし [Five, Four, Three, Two, Ace] の組み合わせはAceが入っているが最弱とする
+                        var numbersl = lhs.Select(v => v.Number);
+                        var numbersr = rhs.Select(v => v.Number);
+                        Func<CardModel.CardNumber, IEnumerable<CardModel.CardNumber>, int> toNativeNumber = 
+                            (x, xs) => x == CardModel.CardNumber.Ace && xs.Contains(CardModel.CardNumber.Two) ? -1 : (int)x;
+                        var maxl = lhs.Select(v => v.Number).Select(v => toNativeNumber(v, numbersl)).Max();
+                        var maxr = rhs.Select(v => v.Number).Select(v => toNativeNumber(v, numbersr)).Max();
+                        if (maxl > maxr)
+                            result = Strength.Strong;
+                        else if (maxl == maxr)
+                            result = Strength.Same;
+                        else
+                            result = Strength.Weak;
+                        break;
+                    default:
+                        // 数字の組を降順並び替え、その数字を射影
+                        var ls = lhs.GroupBy(v => v).OrderBy(v => v.Count()).OrderByDescending(v => v.Key).Select(v => v.First());
+                        var rs = rhs.GroupBy(v => v).OrderBy(v => v.Count()).OrderByDescending(v => v.Key).Select(v => v.First()).ToArray();
+                        // カードが異なった以降をインデックスを付加して取得
+                        var differents = ls.Select((v, i) => new { Index = i, Card = v }).SkipWhile(v => v.Card == rs[v.Index]);
+
+                        if (!differents.Any()) {
+                            result = Strength.Same;
+                        }  else {
+                            var cmpTarget = differents.First();
+                            if (cmpTarget.Card > rs[cmpTarget.Index])
+                                result = Strength.Strong;
+                            else
+                                result = Strength.Weak;
+                        }
                         break;
                 }
             } else {
                 result = Strength.Weak;
             }
+            return result;
         }
     }
 }
