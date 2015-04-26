@@ -83,7 +83,8 @@ namespace VideoPoker.Model
 
             switch(groupsCount) {
                 case 5:// StraightFlush or Straight or Flush or HighCards
-                    if(numbers.Sum(v => (int)v) == Enumerable.Range((int)numbers.Min(), 5).Sum()) {
+                    var straightNums = numbers.Select(v => v == CardModel.CardNumber.Ace && numbers.Contains(CardModel.CardNumber.Two) ? -1 : (int)v);
+                    if (straightNums.Sum() == Enumerable.Range(straightNums.Min(), 5).Sum()) {
                         // 連続している
                         if(isSameMark) 
                             result = Role.StraightFlush;
