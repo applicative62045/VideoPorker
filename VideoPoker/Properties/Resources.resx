@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -114,4 +117,173 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Joker1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Joker1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Joker2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Joker2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reversi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reversi.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reversi2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reversi2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Ace_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Ace].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Eight_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Eight].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Five_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Five].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Four_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Four].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Jack_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Jack].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_King_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,King].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Nine_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Nine].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Queen_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Queen].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Seven_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Seven].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Six_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Six].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Ten_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Ten].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Three_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Three].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Club_Two_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Club,Two].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Ace_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Ace].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Eight_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Eight].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Five_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Five].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Four_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Four].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Jack_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Jack].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_King_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,King].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Nine_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Nine].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Queen_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Queen].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Seven_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Seven].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Six_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Six].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Ten_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Ten].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Three_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Three].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Dia_Two_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Dia,Two].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Ace_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Ace].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Eight_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Eight].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Five_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Five].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Four_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Four].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Jack_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Jack].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_King_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,King].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Nine_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Nine].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Queen_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Queen].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Seven_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Seven].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Six_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Six].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Ten_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Ten].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Three_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Three].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Heart_Two_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Heart,Two].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Ace_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Ace].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Eight_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Eight].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Five_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Five].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Four_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Four].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Jack_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Jack].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_King_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,King].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Nine_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Nine].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Queen_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Queen].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Seven_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Seven].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Six_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Six].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Ten_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Ten].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Three_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Three].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Spade_Two_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Spade,Two].png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

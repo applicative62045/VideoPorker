@@ -24,6 +24,18 @@ namespace VideoPoker.Model
         public DeckModel Deck { get { return _Deck; } set { _Deck = value; RaisePropertyChanged("Deck"); } }
 
         [IgnoreDataMember]
+        private string _Player1Result;
+        [DataMember]
+        public string Player1Result { get { return _Player1Result; } set { _Player1Result = value; RaisePropertyChanged("Player1Result"); } }
+        [IgnoreDataMember]
+        private string _Player2Result;
+        [DataMember]
+        public string Player2Result { get { return _Player2Result; } set { _Player2Result = value; RaisePropertyChanged("Player2Result"); } }
+
+        [IgnoreDataMember]
+        public bool IsGameset { get { return Player1Result != null; } }
+
+        [IgnoreDataMember]
         private static DealerModel _Singletone = Deserialize<DealerModel>() ?? new DealerModel();
         [IgnoreDataMember]
         public static DealerModel Current { get { return _Singletone; } }
@@ -53,6 +65,8 @@ namespace VideoPoker.Model
         public void Reset()
         {
             Deck.Reset();
+            Player1Result = null;
+            Player2Result = null;
         }
 
         public CardModel Pass()
@@ -116,12 +130,16 @@ namespace VideoPoker.Model
             return result;
         }
 
-
         public Strength Judge(IEnumerable<CardModel> lhs, IEnumerable<CardModel> rhs)
         {
-            Strength result;
             var rolel = GetRole(lhs);
             var roler = GetRole(rhs);
+            return Judge(lhs, rolel, rhs, roler);
+        }
+
+        public Strength Judge(IEnumerable<CardModel> lhs, Role rolel, IEnumerable<CardModel> rhs, Role roler)
+        {
+            Strength result;
 
             if (rolel > roler) {
                 result = Strength.Strong;
@@ -132,7 +150,7 @@ namespace VideoPoker.Model
                         // 最大の値で比較する、ただし [Five, Four, Three, Two, Ace] の組み合わせはAceが入っているが最弱とする
                         var numbersl = lhs.Select(v => v.Number);
                         var numbersr = rhs.Select(v => v.Number);
-                        Func<CardModel.CardNumber, IEnumerable<CardModel.CardNumber>, int> toNativeNumber = 
+                        Func<CardModel.CardNumber, IEnumerable<CardModel.CardNumber>, int> toNativeNumber =
                             (x, xs) => x == CardModel.CardNumber.Ace && xs.Contains(CardModel.CardNumber.Two) ? -1 : (int)x;
                         var maxl = lhs.Select(v => v.Number).Select(v => toNativeNumber(v, numbersl)).Max();
                         var maxr = rhs.Select(v => v.Number).Select(v => toNativeNumber(v, numbersr)).Max();
@@ -152,7 +170,7 @@ namespace VideoPoker.Model
 
                         if (!differents.Any()) {
                             result = Strength.Same;
-                        }  else {
+                        } else {
                             var cmpTarget = differents.First();
                             if (cmpTarget.Card > rs[cmpTarget.Index])
                                 result = Strength.Strong;
