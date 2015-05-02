@@ -18,7 +18,7 @@ namespace VideoPoker.Model
     public abstract class SerializableModel : BaseModel
     {
         [IgnoreDataMember]
-        private static Func<string, string> JsonPath = (v) => { return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, v) + ".json"; };
+        private static Func<string, string> JsonPath = (v) => { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), v) + ".json"; };
 
         // 自身をJsonファイルへ変換する関数
         public void Serialize()
