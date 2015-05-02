@@ -48,7 +48,7 @@ namespace VideoPoker.Model
 
         public static bool operator!=(CardModel lhs, CardModel rhs)
         {
-            return lhs != rhs;
+            return !(lhs == rhs);
         }
 
         public override bool Equals(object obj)
