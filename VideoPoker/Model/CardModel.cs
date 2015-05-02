@@ -6,6 +6,9 @@ using System.Text;
 
 namespace VideoPoker.Model
 {
+    public enum CardNumber { Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace };   // 順序をカードの強さとする
+    public enum CardMark { Spade, Heart, Dia, Club };
+
     /// <summary>
     /// カードモデル
     /// </summary>
@@ -17,9 +20,6 @@ namespace VideoPoker.Model
     [DataContract]
     public class CardModel : BaseModel, IEquatable<CardModel>, IComparable<CardModel>, IComparer<CardModel>
     {
-        public enum CardNumber{Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace};   // 順序をカードの強さとする
-        public enum CardMark { Spade, Heart, Dia, Club };
-
         [IgnoreDataMember]
         private CardMark _Mark;
         [DataMember]

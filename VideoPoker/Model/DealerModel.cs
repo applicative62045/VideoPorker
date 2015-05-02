@@ -6,6 +6,9 @@ using System.Text;
 
 namespace VideoPoker.Model
 {
+    public enum Role { HighCards, OnePair, TwoPair, ThreeofAKind, Straight, Flush, FullHouse, FourofAKind, StraightFlush };
+    public enum Strength { Strong, Same, Weak };
+        
     /// <summary>
     /// ディーラー
     /// </summary>
@@ -15,9 +18,6 @@ namespace VideoPoker.Model
     [DataContract]
     public class DealerModel : SerializableModel
     {
-        public enum Role { HighCards, OnePair, TwoPair, ThreeofAKind, Straight, Flush, FullHouse, FourofAKind, StraightFlush };
-        public enum Strength { Strong, Same, Weak};
-        
         [IgnoreDataMember]
         private DeckModel _Deck;
         [IgnoreDataMember]
@@ -97,7 +97,7 @@ namespace VideoPoker.Model
 
             switch(groupsCount) {
                 case 5:// StraightFlush or Straight or Flush or HighCards
-                    var straightNums = numbers.Select(v => v == CardModel.CardNumber.Ace && numbers.Contains(CardModel.CardNumber.Two) ? -1 : (int)v);
+                    var straightNums = numbers.Select(v => v == CardNumber.Ace && numbers.Contains(CardNumber.Two) ? -1 : (int)v);
                     if (straightNums.Sum() == Enumerable.Range(straightNums.Min(), 5).Sum()) {
                         // 連続している
                         if(isSameMark) 
@@ -150,8 +150,8 @@ namespace VideoPoker.Model
                         // 最大の値で比較する、ただし [Five, Four, Three, Two, Ace] の組み合わせはAceが入っているが最弱とする
                         var numbersl = lhs.Select(v => v.Number);
                         var numbersr = rhs.Select(v => v.Number);
-                        Func<CardModel.CardNumber, IEnumerable<CardModel.CardNumber>, int> toNativeNumber =
-                            (x, xs) => x == CardModel.CardNumber.Ace && xs.Contains(CardModel.CardNumber.Two) ? -1 : (int)x;
+                        Func<CardNumber, IEnumerable<CardNumber>, int> toNativeNumber =
+                            (x, xs) => x == CardNumber.Ace && xs.Contains(CardNumber.Two) ? -1 : (int)x;
                         var maxl = lhs.Select(v => v.Number).Select(v => toNativeNumber(v, numbersl)).Max();
                         var maxr = rhs.Select(v => v.Number).Select(v => toNativeNumber(v, numbersr)).Max();
                         if (maxl > maxr)

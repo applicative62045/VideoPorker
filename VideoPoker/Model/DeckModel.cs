@@ -44,8 +44,8 @@ namespace VideoPoker.Model
             int key;
             Random random =  new Random();
             Dictionary<int, CardModel> shuffle = new Dictionary<int, CardModel>();
-            foreach (CardModel.CardMark mark in Enum.GetValues(typeof(CardModel.CardMark))) {
-                foreach (CardModel.CardNumber number in Enum.GetValues(typeof(CardModel.CardNumber))) {
+            foreach (CardMark mark in Enum.GetValues(typeof(CardMark))) {
+                foreach (CardNumber number in Enum.GetValues(typeof(CardNumber))) {
                     do {
                         key = random.Next(52);
                     } while(shuffle.ContainsKey(key));
